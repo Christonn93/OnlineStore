@@ -7,6 +7,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createCustomTheme } from './theme/theme';
 import { useState } from 'react';
 import { Product } from './pages/Product';
+import { CartPage } from './pages/CartPage';
 
 export const App = () => {
   const [themeMode, setThemeMode] = useState<'light' | 'dark'>('dark');
@@ -18,6 +19,7 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="product/:id" element={<Product />} />
+          <Route path="cart" element={<CartPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
