@@ -1,0 +1,30 @@
+{
+  "name": "Buisness Name",
+  "location": {
+    "address": "1234 Main St",
+    "city": "City",
+    "state": "State"
+  },
+  "contact": {
+    "phone": "123-456-7890",
+    "email": "example@email.com"
+  },
+  "social": {
+    "facebook": "www.facebook.com/example",
+    "instagram": "www.instagram.com/example",
+    "twitter": "www.twitter.com/example",
+    "linkedin": "www.linkedin.com/example",
+    "youtube": "www.youtube.com/example",
+    "pinterest": "www.pinterest.com/example",
+    "snapchat": "www.snapchat.com/example",
+    "tiktok": "www.tiktok.com/example"
+  },
+  "websiteDetails": {
+    "name": "Website Name",
+    "url": "www.example.com",
+    "description": "This is a description of the website",
+    "keywords": ["keyword1", "keyword2", "keyword3"],
+    "logo": "www.example.com/logo.png",
+    "favicon": "www.example.com/favicon.ico"
+  }
+}
