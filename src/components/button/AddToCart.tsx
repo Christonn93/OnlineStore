@@ -1,6 +1,5 @@
 import { useStore } from '@/hooks/store/useStore';
-import { Product } from '@/services/types';
-
+import { Product } from '@/hooks/store/useStore.types';
 import { Badge, Box, Button } from '@mui/material';
 import { toast } from 'react-toastify';
 
@@ -18,9 +17,11 @@ export const AddToCart = ({ product }: { product: Product }) => {
             toast.success('Product added to cart');
             addToCart({
               id: product.id,
-              name: product.title,
+              title: product.title,
               price: product.price,
               quantity: 1,
+              description: product.description,
+              imageUrl: product.imageUrl,
             });
           }}
         >

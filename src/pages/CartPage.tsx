@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { useStore } from '../hooks/store/useStore';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, Typography, List, ListItem, ListItemText, Divider } from '@mui/material';

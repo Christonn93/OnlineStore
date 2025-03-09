@@ -2,17 +2,18 @@ import { useState, useEffect } from 'react';
 import { useGetProducts } from '@/hooks/query/useGetProducts';
 import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
-import { Autocomplete, TextField, InputAdornment, alpha } from '@mui/material';
+import { Autocomplete, TextField, InputAdornment } from '@mui/material';
 
 export const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const { data: products = [], refetch } = useGetProducts();
   const navigate = useNavigate();
 
-  // Fetch only when user starts typing
   useEffect(() => {
     if (searchQuery.trim()) {
-      refetch();
+      refetch().catch((error: unknown) => {
+        console.error('Error fetching products:', error);
+      });
     }
   }, [searchQuery, refetch]);
 
@@ -20,11 +21,12 @@ export const SearchBar = () => {
     <Autocomplete
       freeSolo
       options={searchQuery ? products : []}
-      getOptionLabel={option => option.title}
+      getOptionLabel={option => (typeof option === 'string' ? option : option[0].title)}
       onChange={(_event, value) => {
-        if (value) {
-          navigate(`/product/${value.id}`);
-        }
+        if (!value) return null;
+        if (typeof value === 'string') return null;
+
+        void navigate(`/product/${value[0].id}`);
       }}
       renderInput={params => (
         <TextField
@@ -32,7 +34,9 @@ export const SearchBar = () => {
           label="Search"
           variant="outlined"
           value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
+          onChange={e => {
+            setSearchQuery(e.target.value);
+          }}
           slotProps={{
             input: {
               endAdornment: (

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Product, CartItem, StoreProps } from './useStore.types';
+import { Product, StoreProps } from './useStore.types';
 
 export const useStore = create<StoreProps>((set, get) => ({
   cart: [],

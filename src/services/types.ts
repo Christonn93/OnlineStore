@@ -1,20 +1,21 @@
 export type Products = Product[];
 
 export type Product = {
-  id: String;
-  title: String;
-  description: String;
-  price: Number;
-  discountedPrice: Number;
-  imageUrl: String;
-  rating: Number;
-  tags: String[];
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  discountedPrice: number;
+  imageUrl: string;
+  rating: number;
+  tags: string[];
   reviews: [
     {
-      id: String;
-      username: String;
-      rating: Number;
-      description: String;
+      id: string;
+      username: string;
+      rating: number;
+      description: string;
     },
   ];
+  quantity?: number;
 };

@@ -1,14 +1,17 @@
-export interface Product {
+export type Product = {
+  imageUrl: string;
   id: string;
   title: string;
+  description: string;
   price: number;
-}
-
-export interface CartItem extends Product {
   quantity: number;
-}
+};
 
-export interface StoreProps {
+export type CartItem = {
+  quantity: number;
+} & Product;
+
+export type StoreProps = {
   cart: CartItem[];
   totalItemsInCart: number;
   addToCart: (product: Product) => void;
@@ -16,4 +19,4 @@ export interface StoreProps {
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
   getTotalAmount: () => number;
-}
+};

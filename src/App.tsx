@@ -10,7 +10,7 @@ import { Product } from './pages/Product';
 import { CartPage } from './pages/CartPage';
 
 export const App = () => {
-  const [themeMode, setThemeMode] = useState<'light' | 'dark'>('dark');
+  const [themeMode] = useState<'light' | 'dark'>('dark');
 
   return (
     <ThemeProvider theme={createCustomTheme(themeMode)}>

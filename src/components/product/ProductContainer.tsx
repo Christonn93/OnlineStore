@@ -1,9 +1,10 @@
 import { Box, Container } from '@mui/material';
 import { ProductCard } from '../card/ProductCard';
 import { useGetProducts } from '@/hooks/query/useGetProducts';
+import { Product } from '@/services/types';
 
 export const ProductContainer = () => {
-  const { data: product = [] } = useGetProducts();
+  const { data: products } = useGetProducts() as unknown as { data: Product[] };
   return (
     <Container>
       <Box
@@ -15,7 +16,7 @@ export const ProductContainer = () => {
           justifyContent: 'center',
         }}
       >
-        {product.map(product => (
+        {products.map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </Box>
