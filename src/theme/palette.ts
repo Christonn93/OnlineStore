@@ -18,9 +18,14 @@ import {
   warningDark,
   errorLight,
   errorDark,
+  white,
+  lightGrey,
+  darkGrey,
+  black,
 } from './colors';
 
-export const palette = {
+export const getPalette = (mode: 'light' | 'dark') => ({
+  mode,
   primary: {
     main: primaryColor,
     light: primaryLight,
@@ -51,7 +56,15 @@ export const palette = {
     light: errorLight,
     dark: errorDark,
   },
+  background: {
+    default: mode === 'dark' ? darkGrey : lightGrey,
+    paper: mode === 'dark' ? '#1e1e1e' : white,
+  },
+  text: {
+    primary: mode === 'dark' ? white : black,
+    secondary: mode === 'dark' ? grey : darkGrey,
+  },
   greyScale: {
     main: grey,
   },
-};
+});

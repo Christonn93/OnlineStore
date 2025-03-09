@@ -1,14 +1,19 @@
-export type StoredData = {
+export interface Product {
   id: string;
-  name: string;
-};
+  title: string;
+  price: number;
+}
 
-export type StoreProps = {
-  storeValue: string;
-  setStoreValue: (value: string) => void;
+export interface CartItem extends Product {
+  quantity: number;
+}
 
-  storedData: StoredData | null;
-  setStoredData: (data: StoredData | null) => void;
-
-  clearStore: () => void;
-};
+export interface StoreProps {
+  cart: CartItem[];
+  totalItemsInCart: number;
+  addToCart: (product: Product) => void;
+  removeFromCart: (productId: string) => void;
+  updateQuantity: (productId: string, quantity: number) => void;
+  clearCart: () => void;
+  getTotalAmount: () => number;
+}
